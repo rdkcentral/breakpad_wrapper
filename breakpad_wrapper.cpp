@@ -21,6 +21,10 @@
 #include "breakpad_wrapper.h"
 #include "client/linux/handler/exception_handler.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <vector>
+#include <map>
+#include <cstring>
 
 static bool breakpadDumpCallback(const google_breakpad::MinidumpDescriptor& descriptor,
                                                                 void* context,
