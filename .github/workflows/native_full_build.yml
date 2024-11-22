@@ -1,5 +1,5 @@
 
-name: Native Module Compilation
+name: Build Component in Native Environment
 
 on:
   pull_request:
