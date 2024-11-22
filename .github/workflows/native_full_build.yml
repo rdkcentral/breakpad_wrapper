@@ -1,9 +1,9 @@
 
-name: Coverity Full Analysis Scan
+name: Native Module Compilation
 
 on:
   push:
-    branches: [ feature/RDK-52988 ]
+    branches: [ develop ]
     paths: ['**/*.c', '**/*.cpp', '**/*.cc', '**/*.cxx', '**/*.h', '**/*.hpp']
 env:
   AUTOMATICS_UNAME: ${{ secrets.AUTOMATICS_UNAME }}
@@ -20,8 +20,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Run cov_build
+      - name: native build
         run: |
           chmod +x cov_build.sh
-          sh cov_build.sh
+          sh -e cov_build.sh
 
