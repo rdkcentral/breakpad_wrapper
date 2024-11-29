@@ -61,12 +61,10 @@ void breakpad_ExceptionHandler()
 #ifdef MINIDUMP_RDKV
 	const char *minidump_path = "/opt/secure/minidumps";
         FILE *fp;
-        if(( fp = fopen("/tmp/.SecureDumpDisable", "r")) != NULL)
-        {
                 // "RFC Settings for SecureDump is : false
+                fp = fopen("/tmp/.SecureDumpDisable", "r")
                 minidump_path = "/opt/minidumps";
 		fclose(fp);
-        }
 
 #endif
        if (excHandler)
