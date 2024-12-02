@@ -62,7 +62,7 @@ void breakpad_ExceptionHandler()
 	const char *minidump_path = "/opt/secure/minidumps";
         FILE *fp;
                 // "RFC Settings for SecureDump is : false
-                fp = fopen("/tmp/.SecureDumpDisable", "r")
+                fopen("/tmp/.SecureDumpDisable", "r")
                 minidump_path = "/opt/minidumps";
 		fclose(fp);
 
