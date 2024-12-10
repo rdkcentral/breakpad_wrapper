@@ -58,7 +58,7 @@ void breakpad_ExceptionHandler()
 #ifdef _DEBUG_
         printf("\t\t\t\t ********ENTER breakpad_ExceptionHandler****************** \n");
 #endif
-#ifdef MINIDUMP_RDKV
+//#ifdef MINIDUMP_RDKV
 	const char *minidump_path = "/opt/secure/minidumps";
         FILE *fp;
         if(( fp = fopen("/tmp/.SecureDumpDisable", "r")) != NULL)
@@ -68,7 +68,7 @@ void breakpad_ExceptionHandler()
 		fclose(fp);
         }
 
-#endif
+//#endif
        if (excHandler)
        {
        #ifdef _DEBUG_
@@ -76,7 +76,7 @@ void breakpad_ExceptionHandler()
        #endif
            return ;
        }
-#ifdef MINIDUMP_RDKV
+//#ifdef MINIDUMP_RDKV
         const char* breakpadFd = getenv("BREAKPAD_FD");
         if (breakpadFd)
         {
@@ -88,9 +88,9 @@ void breakpad_ExceptionHandler()
                 google_breakpad::MinidumpDescriptor descriptor(minidump_path);
                 excHandler = new google_breakpad::ExceptionHandler(descriptor, NULL, breakpadDumpCallback, NULL, true, -1);
         }
-#else
-	excHandler = new google_breakpad::ExceptionHandler(google_breakpad::MinidumpDescriptor("/minidumps"), NULL, breakpadDumpCallback, NULL, true, -1);
-#endif
+//#else
+	//excHandler = new google_breakpad::ExceptionHandler(google_breakpad::MinidumpDescriptor("/minidumps"), NULL, breakpadDumpCallback, NULL, true, -1);
+//#endif
 #ifdef _DEBUG_
         printf("\t\t\t\t ******** breakpad_ExceptionHandler EXIT****************** \n");
 #endif
