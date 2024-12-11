@@ -57,7 +57,7 @@ TEST_F(BreakpadAddMappingInfoTest, PositiveTest) {
   breakpad_AddMappingInfo(name, identifier, identifer_length, start_address, mapping_size, file_offset);
 }
 
-#if 0
+
 TEST_F(BreakpadAddMappingInfoTest, NegativeTest1) {
   // Invalid name
   char name[] = "";
@@ -69,7 +69,7 @@ TEST_F(BreakpadAddMappingInfoTest, NegativeTest1) {
 
   ASSERT_DEATH(breakpad_AddMappingInfo(name, identifier, identifer_length, start_address, mapping_size, file_offset), "");
 }
-
+#if 0
 TEST_F(BreakpadAddMappingInfoTest, NegativeTest2) {
   // Invalid identifier
   char name[] = "my_breakpad";
