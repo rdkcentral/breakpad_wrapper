@@ -21,7 +21,7 @@ jobs:
 
       - name: Run unit tests
         run: |
-          chmod +x test/run_ut.sh
+          chmod +x unittest.sh
           sh -c unittest.sh
 
       - name: Upload test results to automatic test result management system
