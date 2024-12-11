@@ -80,8 +80,8 @@ void breakpad_ExceptionHandler()
         const char* breakpadFd = getenv("BREAKPAD_FD");
         if (breakpadFd)
         {
-                int breakpadFd = atoi(breakpadFd);
-		google_breakpad::MinidumpDescriptor descriptor(breakpadFd);
+                int breakpadFd_int = atoi(breakpadFd);
+		google_breakpad::MinidumpDescriptor descriptor(breakpadFd_int);
                 excHandler = new google_breakpad::ExceptionHandler(descriptor, NULL, breakpadDumpCallback, NULL, true, -1);
         }
         else
