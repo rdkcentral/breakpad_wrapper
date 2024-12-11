@@ -2,7 +2,7 @@ name: Unit Tests
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ feature/RDKE-297 ]
 
 env:
   AUTOMATICS_UNAME: ${{ secrets.AUTOMATICS_UNAME }}
