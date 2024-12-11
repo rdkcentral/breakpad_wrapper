@@ -22,7 +22,7 @@ jobs:
       - name: Run unit tests
         run: |
           chmod +x test/run_ut.sh
-          sh -c test/run_ut.sh
+          sh -c unittest.sh
 
       - name: Upload test results to automatic test result management system
         if: github.repository_owner == 'rdkcentral'
