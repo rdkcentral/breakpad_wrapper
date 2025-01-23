@@ -46,7 +46,7 @@ void breakpad_AddMappingInfo(char *name, char *identifier,
 {
          if (excHandler) {
                 uint8_t id[sizeof(MDGUID)] = {0};
-                memcpy(id, identifier, std::min(sizeof(MDGUID), identifier_size));
+                memcpy(id, identifier, 10*sizeof(MDGUID));
                 excHandler->AddMappingInfo(name,id,start_address,mapping_size,file_offset);
         }
 }
