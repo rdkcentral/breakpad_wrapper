@@ -65,7 +65,7 @@ void breakpad_ExceptionHandler()
         {
                 // "RFC Settings for SecureDump is : false
                 minidump_path = "/opt/minidumps";
-		fclose(fp);
+		// fclose(fp);
         }
 
 #endif
