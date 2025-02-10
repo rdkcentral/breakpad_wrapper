@@ -17,7 +17,6 @@
 * limitations under the License.
 */
 
-
 #include "breakpad_wrapper.h"
 #include "client/linux/handler/exception_handler.h"
 #include <stdio.h>
