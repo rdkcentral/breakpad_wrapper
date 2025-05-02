@@ -49,61 +49,60 @@ TEST_F(BreakpadAddMappingInfoTest, PositiveTest) {
   // Valid inputs
   char name[] = "my_breakpad";
   char identifier[] = "my_ Identifier";
-  size_t identifer_length = strlen(identifier);
+  size_t identifier_length = strlen(identifier);
   uintptr_t start_address = 0x12345678;
   size_t mapping_size = 100;
   size_t file_offset = 0;
 
-  breakpad_AddMappingInfo(name, identifier, identifer_length, start_address, mapping_size, file_offset);
+  breakpad_AddMappingInfo(name, identifier, identifier_length, start_address, mapping_size, file_offset);
 }
 
-#if 0
 TEST_F(BreakpadAddMappingInfoTest, NegativeTest1) {
   // Invalid name
   char name[] = "";
   char identifier[] = "my_Identifier";
-  size_t identifer_length = strlen(identifier);
+  size_t identifier_length = strlen(identifier);
   uintptr_t start_address = 0x12345678;
   size_t mapping_size = 100;
   size_t file_offset = 0;
 
-  ASSERT_DEATH(breakpad_AddMappingInfo(name, identifier, identifer_length, start_address, mapping_size, file_offset), "");
+  EXPECT_NO_THROW(breakpad_AddMappingInfo(name, identifier, identifier_length, start_address, mapping_size, file_offset));
 }
 
 TEST_F(BreakpadAddMappingInfoTest, NegativeTest2) {
   // Invalid identifier
   char name[] = "my_breakpad";
   char identifier[] = "";
-  size_t identifer_length = 0;
+  size_t identifier_length = 0;
   uintptr_t start_address = 0x12345678;
   size_t mapping_size = 100;
   size_t file_offset = 0;
 
-  ASSERT_DEATH(breakpad_AddMappingInfo(name, identifier, identifer_length, start_address, mapping_size, file_offset), "");
+  EXPECT_NO_THROW(breakpad_AddMappingInfo(name, identifier, identifier_length, start_address, mapping_size, file_offset));
 }
 
 TEST_F(BreakpadAddMappingInfoTest, NegativeTest3) {
   // Invalid start address
   char name[] = "my_breakpad";
   char identifier[] = "my_ Identifier";
-  size_t identifer_length = strlen(identifier);
+  size_t identifier_length = strlen(identifier);
   uintptr_t start_address = 0x12345679;  // One byte overflow
   size_t mapping_size = 100;
   size_t file_offset = 0;
 
-  ASSERT_DEATH(breakpad_AddMappingInfo(name, identifier, identifer_length, start_address, mapping_size, file_offset), "");
+  EXPECT_NO_THROW(breakpad_AddMappingInfo(name, identifier, identifier_length, start_address, mapping_size, file_offset));
 }
 
 TEST_F(BreakpadAddMappingInfoTest, NegativeTest4) {
   // Invalid mapping size
   char name[] = "my_breakpad";
   char identifier[] = "my_ Identifier";
-  size_t identifer_length = strlen(identifier);
+  size_t identifier_length = strlen(identifier);
   uintptr_t start_address = 0x12345678;
   size_t mapping_size = 0;  // Zero mapping size
   size_t file_offset = 0;
 
-  ASSERT_DEATH(breakpad_AddMappingInfo(name, identifier, identifer_length, start_address, mapping_size, file_offset), "");
+  EXPECT_NO_THROW(breakpad_AddMappingInfo(name, identifier, identifier_length, start_address, mapping_size, file_offset));
 }
 
 
@@ -111,50 +110,49 @@ TEST_F(BreakpadAddMappingInfoTest, NegativeTest5) {
   // Invalid file offset
   char name[] = "my_breakpad";
   char identifier[] = "my_ Identifier";
-  size_t identifer_length = strlen(identifier);
+  size_t identifier_length = strlen(identifier);
   uintptr_t start_address = 0x12345678;
   size_t mapping_size = 100;
   size_t file_offset = -1;  // Negative file offset
 
-  ASSERT_DEATH(breakpad_AddMappingInfo(name, identifier, identifer_length, start_address, mapping_size, file_offset), "");
+  EXPECT_NO_THROW(breakpad_AddMappingInfo(name, identifier, identifier_length, start_address, mapping_size, file_offset));
 }
 
 TEST_F(BreakpadAddMappingInfoTest, NegativeTest6) {
   // Null pointer for name
   char* name = nullptr;
   char identifier[] = "my_ Identifier";
-  size_t identifer_length = strlen(identifier);
+  size_t identifier_length = strlen(identifier);
   uintptr_t start_address = 0x12345678;
   size_t mapping_size = 100;
   size_t file_offset = 0;
 
-  ASSERT_DEATH(breakpad_AddMappingInfo(name, identifier, identifer_length, start_address, mapping_size, file_offset), "");
+  EXPECT_NO_THROW(breakpad_AddMappingInfo(name, identifier, identifier_length, start_address, mapping_size, file_offset));
 }
 
 TEST_F(BreakpadAddMappingInfoTest, NegativeTest7) {
   // Null pointer for identifier
   char name[] = "my_breakpad";
   char* identifier = nullptr;
-  size_t identifer_length = 0;
+  size_t identifier_length = 0;
   uintptr_t start_address = 0x12345678;
   size_t mapping_size = 100;
   size_t file_offset = 0;
 
-  ASSERT_DEATH(breakpad_AddMappingInfo(name, identifier, identifer_length, start_address, mapping_size, file_offset), "");
+  EXPECT_NO_THROW(breakpad_AddMappingInfo(name, identifier, identifier_length, start_address, mapping_size, file_offset));
 }
 
 TEST_F(BreakpadAddMappingInfoTest, NegativeTest8) {
   // Both name and identifier are empty strings
   char name[] = "";
   char identifier[] = "";
-  size_t identifer_length = 0;
+  size_t identifier_length = 0;
   uintptr_t start_address = 0x12345678;
   size_t mapping_size = 100;
   size_t file_offset = 0;
 
-  ASSERT_DEATH(breakpad_AddMappingInfo(name, identifier, identifer_length, start_address, mapping_size, file_offset), "");
+  EXPECT_NO_THROW(breakpad_AddMappingInfo(name, identifier, identifier_length, start_address, mapping_size, file_offset));
 }
-#endif
 
 TEST_F(BreakpadExceptionHandlerTest, PositiveTest2) {
  // call and make sure that  ExeceptionHandler is getting called.  

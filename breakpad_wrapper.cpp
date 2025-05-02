@@ -1,5 +1,5 @@
 /*
-* If not stated otherwise in this file or this component's Licenses.txt file the
+* If not stated otherwise in this file or this component's LICENSE file the
 * following copyright and licenses apply:
 *
 * Copyright 2017 RDK Management
@@ -21,6 +21,10 @@
 #include "breakpad_wrapper.h"
 #include "client/linux/handler/exception_handler.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <vector>
+#include <map>
+#include <cstring>
 
 static bool breakpadDumpCallback(const google_breakpad::MinidumpDescriptor& descriptor,
                                                                 void* context,
