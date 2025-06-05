@@ -25,6 +25,9 @@
 #include <vector>
 #include <map>
 #include <cstring>
+#include <string>
+#include <iostream>
+#include <dlfcn.h>
 
 static bool breakpadDumpCallback(const google_breakpad::MinidumpDescriptor& descriptor,
                                                                 void* context,
@@ -35,6 +38,19 @@ static bool breakpadDumpCallback(const google_breakpad::MinidumpDescriptor& desc
         printf("breakpad Call back ..................................................");
         printf("Print descriptor path: %s\n", descriptor.path());
 #endif
+	printf("breakpadDumpCallback: pid %d, tid %d, handler name %s, succeeded %d\n", getpid(), gettid(),descriptor.path(), succeeded);
+	struct sigaction sig;
+        sigaction(SIGSEGV, NULL, &sig);
+        //print the signal handler address
+        printf("breakpadDumpCallback: signal handler address %p\n", sig.sa_handler);
+        //print the custim handler function name using Dlinfo
+        Dl_info info;
+
+        if (dladdr(reinterpret_cast<void*>(sig.sa_handler), &info)) {
+            printf("breakpadDumpCallback: signal handler function name %s\n", info.dli_sname);
+        } else {
+            printf("breakpadDumpCallback: dladdr failed to get signal handler function name\n");
+        }
         return succeeded;
 }
 
