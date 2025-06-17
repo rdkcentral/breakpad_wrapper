@@ -42,6 +42,12 @@ make
 rm -rf ../client
 
 ./bpw_gtest.bin
+if [ $? -ne 0 ]; then
+    echo "Tests failed."
+    exit 1
+else
+    echo "Tests passed."
+fi
 
 #### Generate the coverage report ####
 if [ "$ENABLE_COV" = true ]; then
