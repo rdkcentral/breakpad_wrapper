@@ -31,10 +31,10 @@ static bool breakpadDumpCallback(const google_breakpad::MinidumpDescriptor& desc
                                                                 bool succeeded)
 {
         /* Do the desired exit process here*/
-#ifdef _DEBUG_
+
         printf("breakpad Call back ..................................................");
         printf("Print descriptor path: %s\n", descriptor.path());
-#endif
+
         return succeeded;
 }
 
