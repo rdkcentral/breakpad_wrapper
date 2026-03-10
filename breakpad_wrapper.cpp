@@ -54,6 +54,7 @@ void breakpad_AddMappingInfo(char *name, char *identifier,
 void breakpad_ExceptionHandler()
 
 {
+        printf("Breakpad exception handler called\n");
 
 #ifdef _DEBUG_
         printf("\t\t\t\t ********ENTER breakpad_ExceptionHandler****************** \n");
@@ -99,7 +100,7 @@ void breakpad_ExceptionHandler()
 
 void __attribute__ ((constructor)) breakpad_autoconstruct(void)
 {
-
+    printf("Breakpad wrapper initialized\n");
     breakpad_ExceptionHandler();
 }
 
