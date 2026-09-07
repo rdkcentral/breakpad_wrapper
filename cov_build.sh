@@ -40,6 +40,6 @@ export top_builddir=`pwd`
 
 autoreconf --install
 
-export CXXFLAGS="-I${BREAKPAD_ROOT}/breakpad/src/"
+BUILD_CXXFLAGS="-std=c++17 -I${BREAKPAD_ROOT}/breakpad/src/"
 
-./configure --prefix=${INSTALL_DIR} && make && make install
+./configure --prefix=${INSTALL_DIR} CXXFLAGS="${BUILD_CXXFLAGS}" && make && make install
