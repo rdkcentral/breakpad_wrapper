@@ -42,4 +42,4 @@ autoreconf --install
 
 BUILD_CXXFLAGS="-std=c++17 -I${BREAKPAD_ROOT}/breakpad/src/"
 
-./configure --prefix=${INSTALL_DIR} CXXFLAGS=${BUILD_CXXFLAGS} && make && make install
+./configure --prefix=${INSTALL_DIR} CXXFLAGS="${BUILD_CXXFLAGS}" && make && make install
