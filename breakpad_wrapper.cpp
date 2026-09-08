@@ -49,6 +49,8 @@ void breakpad_AddMappingInfo(char *name, char *identifier,
                 memcpy(id, identifier, std::min(sizeof(MDGUID), identifier_size));
                 excHandler->AddMappingInfo(name,id,start_address,mapping_size,file_offset);
         }
+
+        printf("Test Coverity %s\n");
 }
 
 void breakpad_ExceptionHandler()

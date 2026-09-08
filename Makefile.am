@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-AM_CXXFLAGS = -Wall -fPIC -std=c++0x $(DEBUG_CXXFLAGS)
+AM_CXXFLAGS = -Wall -Wno-error=format -fPIC -std=c++0x $(DEBUG_CXXFLAGS)
 ACLOCAL_AMFLAGS = -I m4
 
 lib_LTLIBRARIES = libbreakpadwrapper.la
