@@ -17,13 +17,13 @@
 
 cd test
 
-if [ "x$1" = "x--enable-cov" ]; then
+#if [ "x$1" = "x--enable-cov" ]; then
       echo "Enabling coverage options"
       export CXXFLAGS="-g -O0 -fprofile-arcs -ftest-coverage"
       export CFLAGS="-g -O0 -fprofile-arcs -ftest-coverage"
       export LDFLAGS="-lgcov --coverage"
       ENABLE_COV=true
-fi
+#fi
 
 autoreconf --install
 
